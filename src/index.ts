@@ -1,7 +1,7 @@
 import express from 'express';
 import cookieSession from 'cookie-session';
 
-import { router as controllerRouter } from './controllers/decorators/controller';
+import AppRouter from './AppRouter';
 
 import loginRoutes from './routes/loginRoutes';
 
@@ -18,7 +18,7 @@ app.use(
 );
 
 app.use(loginRoutes);
-app.use(controllerRouter);
+app.use(AppRouter.getInstance());
 
 app.listen(3000, () => {
     console.log('Listening on port: http://localhost:3000');
