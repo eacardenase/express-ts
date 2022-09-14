@@ -23,7 +23,7 @@ class LoginController {
 
     @post('/login')
     @bodyValidator('email', 'password')
-    postLogin(req: Request, res: Response) {
+    postLogin(req: Request, res: Response): void {
         const { email, password } = req.body;
 
         if (email === 'eacardenase@gmail.com' && password === 'qwerty') {
@@ -40,7 +40,7 @@ class LoginController {
     }
 
     @get('/logout')
-    getLogout(req: Request, res: Response) {
+    getLogout(req: Request, res: Response): void {
         req.session = null;
 
         res.redirect('/');

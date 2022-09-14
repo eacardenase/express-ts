@@ -7,7 +7,7 @@ import { requireAuth } from '../middlewares/protectedRoute';
 @controller('')
 export class RootControler {
     @get('/')
-    getRoot(req: Request, res: Response) {
+    getRoot(req: Request, res: Response): void {
         if (req.session && req.session.loggedIn) {
             res.send(`
             <p>You are logged in</p>
@@ -23,7 +23,7 @@ export class RootControler {
 
     @get('/protected')
     @use(requireAuth)
-    getProtected(req: Request, res: Response) {
+    getProtected(req: Request, res: Response): void {
         res.send('Welcome to protected route, logged in user');
     }
 }
