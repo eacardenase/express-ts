@@ -4,7 +4,6 @@ import cookieSession from 'cookie-session';
 import AppRouter from './AppRouter';
 
 import loginRoutes from './routes/loginRoutes';
-
 import './controllers/LoginController';
 
 const app = express();
