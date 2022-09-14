@@ -1,15 +1,9 @@
 import { Request, Response, NextFunction } from 'express';
 
-export function requireAuth(
-    req: Request,
-    res: Response,
-    next: NextFunction
-): void {
+export function requireAuth(req: Request, res: Response, next: NextFunction) {
     if (req.session && req.session.loggedIn) {
-        next();
-
-        return;
+        return next();
     }
 
-    res.status(401).send('Not permitted');
+    return res.status(401).send('Not permitted');
 }
